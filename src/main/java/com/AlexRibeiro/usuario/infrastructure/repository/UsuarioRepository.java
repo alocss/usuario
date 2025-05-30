@@ -1,6 +1,5 @@
 package com.AlexRibeiro.usuario.infrastructure.repository;
 
-
 import com.AlexRibeiro.usuario.infrastructure.entity.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
