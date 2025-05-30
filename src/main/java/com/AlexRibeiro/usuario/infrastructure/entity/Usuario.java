@@ -1,6 +1,5 @@
 package com.AlexRibeiro.usuario.infrastructure.entity;
 
-
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -34,7 +33,7 @@ public class Usuario implements UserDetails {
     private List<Endereco> enderecos;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name="usuario_id", referencedColumnName = "id")
-    private List<Telefone> telefone;
+    private List<Telefone> telefones;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
