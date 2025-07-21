@@ -46,10 +46,10 @@ public class UsuarioService {
         try {
             boolean existe = verificaEmailExistente(email);
             if (existe){
-                throw  new ClassCastException("Email já cadastrado" + email);
+                throw  new ClassCastException("Email já cadastrado " + email);
             }
         }catch (ConflictException e){
-            throw new ConflictException("Email já cadastrado", e.getCause());
+            throw new ConflictException("Email já cadastrado ", e.getCause());
         }
     }
 
@@ -62,7 +62,7 @@ public class UsuarioService {
             return  usuarioConverter.paraUsuarioDTO(
                     usuarioRepository.findByEmail(email)
                             .orElseThrow(
-                    () -> new ResourceNotFoundException("Email não encontrado" + email)
+                    () -> new ResourceNotFoundException("Email não encontrado " + email)
                             )
             );
 
@@ -89,7 +89,7 @@ public class UsuarioService {
 
         //Busca os dados do usuario no banco de dados
         Usuario usuarioEntity = usuarioRepository.findByEmail(email).orElseThrow(()->
-                new ResourceNotFoundException("Email não localizado"));
+                new ResourceNotFoundException("Email não localizado "));
 
         //Mesclou os dados que recebemos na requisição DTO com os dados do banco de dados
         Usuario usuario = usuarioConverter.updateUsuario(dto, usuarioEntity);
@@ -102,7 +102,7 @@ public class UsuarioService {
     public EnderecoDTO atualizaEndereco(Long idEndereco, EnderecoDTO enderecoDTO){
 
         Endereco entity = enderecoRepository.findById(idEndereco).orElseThrow(() ->
-                new ResourceNotFoundException("Id não encontrado" + idEndereco));
+                new ResourceNotFoundException("Id não encontrado " + idEndereco));
 
         Endereco endereco = usuarioConverter.updateEndereco(enderecoDTO, entity);
 
@@ -113,7 +113,7 @@ public class UsuarioService {
 
     public TelefoneDTO atualizaTelefone(Long idTelefone, TelefoneDTO dto){
         Telefone entity = telefoneRepository.findById(idTelefone).orElseThrow(() ->
-                new ResourceNotFoundException("Id não encontrado" + idTelefone));
+                new ResourceNotFoundException("Id não encontrado " + idTelefone));
 
         Telefone telefone = usuarioConverter.updateTelefone(dto, entity);
 
