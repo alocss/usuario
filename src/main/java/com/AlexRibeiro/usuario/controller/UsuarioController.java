@@ -36,8 +36,8 @@ public class UsuarioController {
         return jwtUtil.generateToken(authentication.getName());
     }
 
-    @GetMapping
-    public ResponseEntity <UsuarioDTO>  buscaUsuarioPorEmail (@RequestParam("email")String email){
+        @GetMapping
+        public ResponseEntity <UsuarioDTO>  buscaUsuarioPorEmail (@RequestParam("email")String email){
         return  ResponseEntity.ok(usuarioService.buscarUsuarioPorEmail(email));
     }
 
